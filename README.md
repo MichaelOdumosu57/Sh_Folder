@@ -1,5 +1,13 @@
 ## Bash scripting 
 
+## Printing
+to print or console.log
+* echo does newline
+```sh 
+echo 
+```
+
+### Variables
 * you have to be very specifc about spacing 
 
 > Variables 
@@ -19,11 +27,6 @@ $VAR
 echo "${VAR}'s dog is kaia"
 ```
 
-to print or console.log
-* echo does newline
-```sh 
-echo 
-```
 
 
 * python3's sys.argv 
@@ -32,6 +35,16 @@ $1 - $n
 the script itself $0
 ```
 
+* to export vars to make them env vars
+
+```sh
+first_var='alpha'
+second_var='bravo'
+export first_var
+export second_var
+```
+
+
 ### Special Variables 
 
 * __$#__ - total # of args
@@ -39,10 +52,13 @@ the script itself $0
 * __$*__ - all args double quoted
 * __$?__ - exit status of last command
 * __$!__ - process ID of last command
+* __$$__ - pid of current script 
 * __$IFS__ internal field seperator, allows you to change a delimiter on how a file is split line by line
 * __$USER__ - username person executing script 
 * __$HOSTNAME__ - machine the script is running on 
-
+* __$SECONDS__: The number of seconds the script has been running for.
+* __$RANDOM__: Returns a random number.
+* __$LINENO__: Returns the current line number of the script.
 
 ### Reading Files 
 * while loop input redirection 
