@@ -3,8 +3,12 @@
 * you have to be very specifc about spacing 
 
 > Variables 
-* no spaces,
-* VAR=VALUE
+* to define a var
+> no spaces,
+```sh
+VAR=VALUE
+VAR=$(echo -n "str" | md5sum | awk '{print $1}')
+```
 * to refer to a var
 ```sh
 $VAR
