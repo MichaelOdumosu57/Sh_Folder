@@ -79,14 +79,22 @@ fi
 
 #### Comparison Operators 
 
-*  -eq = Equal
-*  
-* 
-* 
-* 
-* 
-* 
+* __-eq__ = Equal 
+* __-ne__ = Not equal 
+* __-gt__ = Greater than 
+* __-lt__ = Less than 
+* __-z__ = String is null 
+* __-n__ = String is not nul
 
+#### File Test Operators
+
+* -e = File exists 
+* -f = File is a file not a directory or device 
+* -d = File is a directory 
+* -s = File size is not zero 
+* -r = User running script has read permission to file
+* -w = User running script has read write to file 
+* -x = User running script has read execute to file
 
 
 #### For Loops 
