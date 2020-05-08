@@ -5,17 +5,19 @@ to print or console.log
 * echo does newline
 ```sh 
 echo 
+# without newline 
+echo -n
 ```
 
 ### Variables
 * you have to be very specifc about spacing 
 
-> Variables 
+ 
 * to define a var
 > no spaces,
 ```sh
 VAR=VALUE
-VAR=$(echo -n "str" | md5sum | awk '{print $1}')
+VAR=$(echo -n "str_or_var" | command_name | awk '{print $1}')
 ```
 * to refer to a var
 ```sh
@@ -25,6 +27,7 @@ $VAR
 * SO YOU can concat strings
 ```sh 
 echo "${VAR}'s dog is kaia"
+corey's dog is kaia
 ```
 
 
@@ -103,18 +106,18 @@ fi
 * __-ne__ = Not equal 
 * __-gt__ = Greater than 
 * __-lt__ = Less than 
-* __-z__ = String is null 
+* __-z__ = String is nul 
 * __-n__ = String is not nul
 
 #### File Test Operators
 
-* -e = File exists 
-* -f = File is a file not a directory or device 
-* -d = File is a directory 
-* -s = File size is not zero 
-* -r = User running script has read permission to file
-* -w = User running script has read write to file 
-* -x = User running script has read execute to file
+* __-e__ = File exists 
+* __-f__ = File is a file not a directory or device 
+* __-d__ = File is a directory 
+* __-s__ = File size is not zero 
+* __-r__ = User running script has read permission to file
+* __-w__ = User running script has  write to file 
+* __-x__ = User running script has  execute to file
 
 
 #### For Loops 
@@ -134,6 +137,10 @@ done
 * ranges - {1..5}
     - if you zfill {01..15} it will understand to zfill all values 
 
+to make a list
+```sh 
+MY_LIST="apple banan cherry"
+```
 #### Functions 
 * they command args and the fn use the same special chars becasue of scoping
 * if you want the command line args insde the fn assign to an new variable before using 
