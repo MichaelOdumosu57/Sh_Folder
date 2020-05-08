@@ -1,0 +1,3 @@
+file1.txt this is pretty cool stuff!
+oogabooga.txt wow what a cool file coming up.
+file3.txt hard problem right here!

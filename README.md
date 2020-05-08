@@ -29,6 +29,10 @@ $VAR
 echo "${VAR}'s dog is kaia"
 corey's dog is kaia
 ```
+```sh
+echo "${VAR}${VAR}"
+coreycorey
+```
 
 
 
@@ -68,7 +72,7 @@ export second_var
 ```sh
 while read line
 do 
-    echo $line
+    echo ${line}
 done < filename 
 ```
 
@@ -106,8 +110,12 @@ fi
 * __-ne__ = Not equal 
 * __-gt__ = Greater than 
 * __-lt__ = Less than 
-* __-z__ = String is nul 
+* __-z__ = String is 
+    - nul is an "" in sh
 * __-n__ = String is not nul
+* __==__ - string equal
+
+
 
 #### File Test Operators
 
@@ -121,14 +129,36 @@ fi
 
 
 #### For Loops 
-
+* the quotes in  "${SHARK}" means one item 
+* no quotes means the items inside "${SHARK}" 
+* if you use IFS use single quotes, like this 
+> IFS=$'\n'
+* also do unset IFS once your are done 
 ```sh
 for VAR in LIST 
 do 
     echo ${VAR}
 done 
+SHARK='A LIST'
+for var in "${SHARK}"
+do
+done 
+
+IFS=$'\n'
+for var in ${SHARK}
+do
+done 
+unset IFS
 ```
 
+* to loop through a stirng
+```sh
+ read ${MY_IP}  # depends sometimes
+for i in $(seq 1 ${#MY_IP})
+do
+  echo "${MY_IP:i-1:1}"
+done
+```
 
 #### Types of Lists
 
@@ -152,4 +182,37 @@ shark(){
 }
 shark 1 2 3 4 5
 echo $2
+```
+
+#### Mathematcis 
+to do basic math 
+```sh
+$(expr 1 + 1)
+$(expr  ${MY_NUM} + 1)
+```
+
+
+#### Tricks
+
+* to replace a delimiter
+* and help get newlines into a file after creation because the \n is taken literally
+> look at the tr command
+```sh
+ip_loop(){
+    # echo 'start ip loop'
+    # echo 
+    LOOP_LIST=${LOOP_LIST}"~"${1}
+
+}
+LOOP_LIST=' '
+
+while read line
+do 
+    ip_loop ${line}
+done < ${1}
+
+for VAR in $( ( (echo ${LOOP_LIST}  | tr '~' '\n') | sort  -h ) |cat ) 
+do 
+    echo ${VAR}
+done
 ```
